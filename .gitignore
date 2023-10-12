@@ -1,0 +1,7 @@
+/.cache
+/config.json
+/main.spec
+/__pycache__
+/build
+/.vscode
+/dist

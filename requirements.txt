@@ -1,0 +1,6 @@
+keyboard
+tk
+tkinterdnd2
+pywin32
+icoextract
+pillow
