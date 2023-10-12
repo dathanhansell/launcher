@@ -20,17 +20,15 @@ class Window:
         self.buttons = []
         self.initialize_buttons()
 
-        # new code to create right-click menu
         self.context_menu = tk.Menu(self.root, tearoff=0)
         self.context_menu.add_command(label="Quit", command=self.root.quit)
         self.root.bind("<Button-3>", self.show_context_menu)
         self.root.withdraw()
         self.root.wm_attributes("-transparentcolor", "yellow")
-    # new function to show right-click menu
+
     def show_context_menu(self, event):
         self.context_menu.post(event.x_root, event.y_root)
 
-    # the rest of your code
 
 
     def initialize_buttons(self):
@@ -41,7 +39,7 @@ class Window:
             image = extract_icon(path)
             if image:
                 new_button = Button(self, path, coord, image)
-                self.buttons.append(new_button)  # Store button instances
+                self.buttons.append(new_button)  
 
     def toggle_visibility(self):
         if self.root.state() == 'normal':
@@ -63,14 +61,12 @@ class Window:
         image = extract_icon(path)
         if image:
             save_path(path)
-            # Add the path to app_paths and update the button layout accordingly
-            self.app_paths.append(path)  # This is added
+            self.app_paths.append(path)
             new_coords = button_layout(len(self.app_paths))
-            # Add coordinates to the list
             self.coords.extend(new_coords)
             new_button = Button(self, path, self.coords[-1], image)
-            self.buttons.append(new_button)  # Store button instances
-            self.update_button_positions()  # Update positions
+            self.buttons.append(new_button)
+            self.update_button_positions() 
         else:
             print('Not an exe file!')
 

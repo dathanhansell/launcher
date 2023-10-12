@@ -4,8 +4,12 @@ CONFIG_FILE = "config.json"
 
 def load_paths():
     paths = []
-    with open('config.json', 'r') as file:
-        if os.stat('config.json').st_size != 0:  # check if file is not empty
+    if not os.path.exists(CONFIG_FILE):
+        with open(CONFIG_FILE, 'w') as file:
+            pass
+    
+    with open(CONFIG_FILE, 'r') as file:
+        if os.stat(CONFIG_FILE).st_size != 0:
             paths = json.load(file)
     return paths
         

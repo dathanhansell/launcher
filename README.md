@@ -7,3 +7,8 @@ To remove, right click the icon of the program you want to remove
 To quit, right click the background and click quit
 
 ![](example.jpg)
+
+
+build:
+
+pyinstaller -F -w myproject/myproject.py --additional-hooks-dir=.

@@ -5,7 +5,7 @@ from helpers import clean_path
 import ctypes
 class Button:
     def __init__(self, window, path, coords, image):
-        self.window = window  # save parent window reference
+        self.window = window
         self.path = path
         self.button = tk.Button(window.root, image=image, command=self.open_app, bd=0, bg="#222222", activebackground="#222222")
         self.button.image = image
@@ -29,16 +29,16 @@ class Button:
         return "break"
     
     def remove_button(self):
-        self.window.app_paths.remove(self.path)  # remove path from app_paths
+        self.window.app_paths.remove(self.path)  
         remove_path(self.path)
-        self.window.buttons.remove(self)  # remove this button from buttons list
+        self.window.buttons.remove(self) 
         self.window.canvas.delete(self.button_id)  
         self.button.destroy() 
-        self.window.update_button_positions()  # update positions
+        self.window.update_button_positions() 
 
     def update_icon(self, image):
-        self.button.image = image  # Update reference
-        self.button.config(image=image)  # Update configuration
+        self.button.image = image  
+        self.button.config(image=image)  
 
     def update_path(self, path):
         self.path = path
